@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
 import { Injectable } from '@angular/core';
 import { RaceModel } from './models/race.model';
 
@@ -6,13 +9,13 @@ export class RaceService {
 
   constructor() { }
 
-  list(): RaceModel[] {
-    return [
+  list(): Observable<RaceModel[]> {
+    return Observable.of([
       { name: 'Lyon' },
       { name: 'Los Angeles' },
       { name: 'Sydney' },
       { name: 'Tokyo' },
       { name: 'Casablanca' }
-    ];
+    ]);
   }
 }
