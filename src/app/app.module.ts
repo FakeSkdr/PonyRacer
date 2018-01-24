@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { RaceService } from './race.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RacesComponent } from './races/races.component';
-
-import { RaceService } from './race.service';
 import { RaceComponent } from './race/race.component';
+import { PonyComponent } from './pony/pony.component';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { RaceComponent } from './race/race.component';
     AppComponent,
     MenuComponent,
     RacesComponent,
-    RaceComponent
+    RaceComponent,
+    PonyComponent
   ],
   imports: [
     BrowserModule
