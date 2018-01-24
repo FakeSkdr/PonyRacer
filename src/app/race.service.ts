@@ -8,7 +8,7 @@ import { RaceModel } from './models/race.model';
 
 @Injectable()
 export class RaceService {
-  baseUrl = 'http://ponyracer.ninja-squad.com';
+  baseUrl = 'http://ponyracer.ninja-squad.com/api';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,6 @@ export class RaceService {
       status: 'PENDING'
     };
 
-    return this.http.get<RaceModel[]>(`${this.baseUrl}/api/races`, { params });
+    return this.http.get<RaceModel[]>(`${this.baseUrl}/races`, { params });
   }
 }

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 
 import { RaceService } from './race.service';
+import { UserService } from './user.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -33,7 +34,7 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RaceService],
+  providers: [RaceService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
