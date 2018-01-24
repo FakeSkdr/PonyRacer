@@ -56,10 +56,17 @@
     ],
     "no-construct": true,
     "no-debugger": true,
+    "no-duplicate-imports": true,
     "no-duplicate-super": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
+    "no-import-side-effect": [
+      true,
+      {
+        "ignore-pattern": "/rxjs.*/"
+      }
+    ],
     "no-inferrable-types": [
       true,
       "ignore-params"
@@ -70,6 +77,7 @@
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
+    "no-this-assignment": true,
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
@@ -107,6 +115,7 @@
         "variable-declaration": "nospace"
       }
     ],
+    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
@@ -129,7 +138,12 @@
       "pr",
       "kebab-case"
     ],
+    "angular-whitespace": [true, "check-semicolon", "check-interpolation", "check-pipe"],
     "no-output-on-prefix": true,
+    "banana-in-box": true,
+    "contextual-life-cycle": true,
+    "templates-no-negated-async": true,
+    "use-view-encapsulation": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
