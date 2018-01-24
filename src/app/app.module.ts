@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RacesComponent } from './races/races.component';
 
+import { RaceService } from './race.service';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { RacesComponent } from './races/races.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [RaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
