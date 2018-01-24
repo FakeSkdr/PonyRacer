@@ -7,13 +7,15 @@ import { MenuComponent } from './menu/menu.component';
 import { RacesComponent } from './races/races.component';
 
 import { RaceService } from './race.service';
+import { RaceComponent } from './race/race.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    RacesComponent
+    RacesComponent,
+    RaceComponent
   ],
   imports: [
     BrowserModule
