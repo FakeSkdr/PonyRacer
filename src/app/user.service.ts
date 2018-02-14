@@ -31,6 +31,11 @@ export class UserService {
       .do(user => this.storeLoggedInUser(user));
   }
 
+  logout() {
+    this.userEvents.next(null);
+    window.localStorage.removeItem('rememberMe');
+  }
+
   storeLoggedInUser(user) {
     window.localStorage.setItem('rememberMe', JSON.stringify(user));
     this.userEvents.next(user as UserModel);
