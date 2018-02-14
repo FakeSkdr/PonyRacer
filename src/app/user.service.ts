@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
-  baseUrl = 'http://ponyracer.ninja-squad.com/api';
+  baseUrl = 'http://ponyracer.ninja-squad.com/api/users';
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +15,10 @@ export class UserService {
       birthYear
     };
 
-    return this.http.post(`${this.baseUrl}/users`, params);
+    return this.http.post(`${this.baseUrl}`, params);
+  }
+
+  authenticate(credentials): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/authentication`, credentials);
   }
 }
