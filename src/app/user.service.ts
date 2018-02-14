@@ -12,7 +12,9 @@ export class UserService {
 
   public userEvents: BehaviorSubject<UserModel> = new BehaviorSubject<UserModel>(undefined);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.retrieveUser();
+  }
 
   register(login, password, birthYear): Observable<Object> {
     const params = {
@@ -26,6 +28,19 @@ export class UserService {
 
   authenticate(credentials): Observable<Object> {
     return this.http.post(`${this.baseUrl}/authentication`, credentials)
-      .do(user => this.userEvents.next(user as UserModel));
+      .do(user => this.storeLoggedInUser(user));
+  }
+
+  storeLoggedInUser(user) {
+    window.localStorage.setItem('rememberMe', JSON.stringify(user));
+    this.userEvents.next(user as UserModel);
+  }
+
+  retrieveUser(): void {
+    const json = window.localStorage.getItem('rememberMe');
+    if (json) {
+      const user = JSON.parse(json);
+      this.userEvents.next(user as UserModel);
+    }
   }
 }
