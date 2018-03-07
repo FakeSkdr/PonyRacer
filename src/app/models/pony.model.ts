@@ -3,3 +3,7 @@ export class PonyModel {
     name: string;
     color: string;
 }
+
+export class PonyWithPositionModel extends PonyModel {
+    position: number;
+}

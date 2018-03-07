@@ -8,6 +8,7 @@
   <div [ngClass]="{'selected': isPonySelected(pony)}" class="col-12 col-md-2" *ngFor="let pony of raceModel.ponies">
     <pr-pony (ponyClicked)="betOnPony(pony)" [ponyModel]="pony"></pr-pony>
   </div>
+  <a class="btn btn-primary" routerLink="/races/{{raceModel.id}}/live">Watch live!</a>
   <div *ngIf="betFailed" class="alert alert-danger">
     The race is already started or finished
   </div>
