@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 
 @Injectable()
 export class RaceService {
-  baseUrl = `${environment.baseUrl}/api`;
+  baseUrl = `${environment.baseUrl}/api/races`;
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +18,14 @@ export class RaceService {
       status: 'PENDING'
     };
 
-    return this.http.get<RaceModel[]>(`${this.baseUrl}/races`, { params });
+    return this.http.get<RaceModel[]>(`${this.baseUrl}`, { params });
+  }
+
+  bet(raceId: number, ponyId: number): Observable<RaceModel> {
+    return this.http.post<RaceModel>(`${this.baseUrl}/${raceId}/bets`, { ponyId });
+  }
+
+  get(id: number | string): Observable<RaceModel>  {
+    return this.http.get<RaceModel>(`${this.baseUrl}/${id}`);
   }
 }

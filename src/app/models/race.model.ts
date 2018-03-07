@@ -5,4 +5,5 @@ export class RaceModel {
     name: string;
     startInstant: string;
     ponies: PonyModel[];
+    betPonyId?: number;
 }
