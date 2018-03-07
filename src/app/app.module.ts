@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 
 import { RaceService } from './race.service';
 import { UserService } from './user.service';
+import { JwtInterceptorService } from './jwt-interceptor.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -37,7 +38,10 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RaceService, UserService],
+  providers: [RaceService,
+    UserService,
+    JwtInterceptorService,
+    { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

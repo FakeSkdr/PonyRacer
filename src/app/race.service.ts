@@ -5,10 +5,11 @@ import 'rxjs/add/observable/of';
 
 import { Injectable, OnInit } from '@angular/core';
 import { RaceModel } from './models/race.model';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class RaceService {
-  baseUrl = 'http://ponyracer.ninja-squad.com/api';
+  baseUrl = `${environment.baseUrl}/api`;
 
   constructor(private http: HttpClient) { }
 
